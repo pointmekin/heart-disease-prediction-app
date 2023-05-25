@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    @variants responsive {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+    }
+  }
+
+/*place global styles here */
+html,
+body {
+	@apply h-full overflow-hidden;
+
+	babackground-color:hsla(0,0%,0%,0);
+	background-image:
+		radial-gradient(at 100% 99%, hsla(359,25%,35%,0.48) 0px, transparent 50%),
+		radial-gradient(at 0% 0%, hsla(343,27%,33%,0.69) 0px, transparent 50%);
+}
