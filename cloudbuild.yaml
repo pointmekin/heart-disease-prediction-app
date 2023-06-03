@@ -1,23 +1,23 @@
- steps:
- # Build the container image
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['build', '-t', 'gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA', '.']
- # Push the container image to Container Registry
- - name: 'gcr.io/cloud-builders/docker'
-   args: ['push', 'gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA']
- # Deploy container image to Cloud Run
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-   entrypoint: gcloud
-   args:
-   - 'run'
-   - 'deploy'
-   - 'heart-ml-app'
-   - '--image'
-   - 'gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA'
-   - '--region'
-   - 'asia-east1'
-   env:
-    - 'PUBLIC_SUPABASE_PROJECT=${_PUBLIC_SUPABASE_PROJECT}'
-    - 'PUBLIC_SUPABASE_API_KEY=${_PUBLIC_SUPABASE_API_KEY}'
- images:
- - 'gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA'
+steps:
+  # Build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA", "."]
+  # Push the container image to Container Registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA"]
+  # Deploy container image to Cloud Run
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "heart-ml-app"
+      - "--image"
+      - "gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA"
+      - "--region"
+      - "asia-east1"
+    env:
+      - "PUBLIC_SUPABASE_PROJECT=${_PUBLIC_SUPABASE_PROJECT}"
+      - "PUBLIC_SUPABASE_API_KEY=${_PUBLIC_SUPABASE_API_KEY}"
+images:
+  - "gcr.io/$PROJECT_ID/heart-ml-app:$COMMIT_SHA"
