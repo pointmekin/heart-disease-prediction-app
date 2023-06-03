@@ -48,7 +48,7 @@
 			"eslint --quiet --fix"
 		],
 		"*.{json,js,ts,jsx,tsx,html,svelte}": [
-			"prettier --write --ignore-unknown"
+			"prettier --plugin-search-dir --write ."
 		]
 	}
 }
