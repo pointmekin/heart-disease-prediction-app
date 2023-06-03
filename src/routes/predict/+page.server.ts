@@ -33,7 +33,7 @@ export const actions = {
 			const res = await predictionResponse.json();
 			predictionResult.set(res);
 
-			let user = null
+			let user = null;
 
 			// Find existing user
 			const { data: userData, error: findUserErr } = await supabase
@@ -44,16 +44,17 @@ export const actions = {
 			if (userData) user = userData[0];
 			if (findUserErr) return { prediction: res, form, saveError: findUserErr };
 
-			
-
 			// Create new user
 			if (userData && userData.length === 0) {
-				const { data: newUser, error: createUserErr } = await supabase.from("users").insert([
-					{
-						name: form.data.name,
-						surname: form.data.surname
-					}
-				]).select("*");
+				const { data: newUser, error: createUserErr } = await supabase
+					.from("users")
+					.insert([
+						{
+							name: form.data.name,
+							surname: form.data.surname
+						}
+					])
+					.select("*");
 				if (createUserErr) return { prediction: res, form, saveError: createUserErr };
 				if (newUser) user = newUser[0];
 			}
@@ -77,7 +78,7 @@ export const actions = {
 					has_diff_alone: form.data.has_diff_alone,
 					has_copd: form.data.has_copd
 				}
-			])
+			]);
 			if (error) return { prediction: res, form, saveError: error };
 
 			// Return the prediction

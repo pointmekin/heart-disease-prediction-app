@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { HeartDiseaseInfo } from '$lib/data/HeartDiseaseInfo';
+	import { HeartDiseaseInfo } from "$lib/data/HeartDiseaseInfo";
 
 	export let imageSrc: string;
 	export let title: string;
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div>
-			<img src={imageSrc} class="w-full rounded-lg shadow-lg h-[600px]" alt={imageSrc}/>
+			<img src={imageSrc} class="w-full rounded-lg shadow-lg h-[600px]" alt={imageSrc} />
 		</div>
 	</div>
 </div>

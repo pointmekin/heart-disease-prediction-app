@@ -1,4 +1,4 @@
 export interface FloatingInfoCardData {
-  title: string;
-  list: string[]
+	title: string;
+	list: string[];
 }

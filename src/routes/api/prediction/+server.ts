@@ -1,6 +1,6 @@
-import { heartDiseasePrediction } from '../../../lib/utils/heartDiseasePredictionModel';
-import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
+import { heartDiseasePrediction } from "../../../lib/utils/heartDiseasePredictionModel";
+import { json } from "@sveltejs/kit";
+import type { RequestHandler } from "./$types";
 
 export const POST: RequestHandler = async ({ request }) => {
 	const {
@@ -18,9 +18,9 @@ export const POST: RequestHandler = async ({ request }) => {
 		has_diff_alone,
 		has_copd
 	} = await request.json();
-  const input = [
-    general_health,
-    age,
+	const input = [
+		general_health,
+		age,
 		has_diff_walk,
 		has_stroke,
 		has_diabetes,
@@ -32,6 +32,6 @@ export const POST: RequestHandler = async ({ request }) => {
 		is_smoker,
 		has_diff_alone,
 		has_copd
-  ]
+	];
 	return json(heartDiseasePrediction(input));
 };
