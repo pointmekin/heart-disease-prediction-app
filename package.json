@@ -11,7 +11,8 @@
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"test": "lint-staged"
+		"test": "lint-staged",
+		"create-env": "printenv > .env"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "^1.5.1",
