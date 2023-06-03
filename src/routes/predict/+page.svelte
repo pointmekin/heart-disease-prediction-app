@@ -22,7 +22,7 @@
 
 	const toPercentage = (input: number) => {
 		return `${(input * 100).toFixed(2)}%`;
-	}
+	};
 </script>
 
 <PageContainer>
@@ -60,8 +60,7 @@
 			on:click={() => {
 				selectedPage.set("RESULTS");
 			}}
-			disabled={!$predictionResult[0]}
-			>Results</button
+			disabled={!$predictionResult[0]}>Results</button
 		>
 	</div>
 
