@@ -17,7 +17,8 @@ export const PersonalIndcatorSchema = z.object({
 	has_diff_dress: z.number().min(0, { message: "This field is required" }).default(-1),
 	is_smoker: z.number().min(0, { message: "This field is required" }).default(-1),
 	has_diff_alone: z.number().min(0, { message: "This field is required" }).default(-1),
-	has_copd: z.number().min(0, { message: "This field is required" }).default(-1)
+	has_copd: z.number().min(0, { message: "This field is required" }).default(-1),
+	check: z.boolean()
 });
 
 export type PersonalIndcatorSchemaType = z.infer<typeof PersonalIndcatorSchema>;

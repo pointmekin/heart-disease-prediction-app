@@ -4,6 +4,14 @@ import type { TypeOf } from "zod";
 export const PersonalIndicatorsFormFields = (): PersonalIndicatorsFormField[] => {
 	return [
 		{
+			name: "check",
+			label: "check",
+			description: "Please enter your check",
+			type: "checkbox",
+			placeholder: "check",
+			options: []
+		},
+		{
 			name: "name",
 			label: "Name",
 			description: "Please enter your name",

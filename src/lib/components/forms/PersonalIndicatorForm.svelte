@@ -16,6 +16,7 @@
 		validationMethod: "oninput",
 		defaultValidator: "keep",
 		onResult: ({ result }) => {
+			console.log(result.data.form.data);
 			if (result.type === "failure") {
 				const t: ToastSettings = {
 					message: "Please fill all the fields",
@@ -85,6 +86,18 @@
 						<option class="z-10 !hover:bg-primary-100" value={option.value}>{option.label}</option>
 					{/each}
 				</select>
+			{:else if field.type === "checkbox"}
+				<!-- checkbox input -->
+				<div class="flex items-center">
+					<input
+						class="input h-12 px-4"
+						type="checkbox"
+						name={field.name}
+						data-invalid={Boolean($errors[field.name])}
+						bind:checked={$form[field.name]}
+					/>
+					<label class="ml-2" for={field.name}>{field.placeholder}</label>
+				</div>
 			{/if}
 
 			<!-- Error Message -->
